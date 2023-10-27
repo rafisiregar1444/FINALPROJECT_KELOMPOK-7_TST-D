@@ -24,7 +24,19 @@ class DummyUsersSeeder extends Seeder
                 'name' => 'user',
                 'email' => 'user@example.com',
                 'role' => 'user',
-                'password' => bcryt('12345')
+                'password' => bcrypt('12345')
+            ],
+            [
+                'name' => 'Yayasan',
+                'email' => 'bp@example.com',
+                'role' => 'bp',
+                'password' => bcrypt('12345')
+            ],
+            [
+                'name' => 'Perguruan Tinggi',
+                'email' => 'pt@example.com',
+                'role' => 'pt',
+                'password' => bcrypt('12345')
             ]
         ];
         foreach ($userData as $key => $val) {    

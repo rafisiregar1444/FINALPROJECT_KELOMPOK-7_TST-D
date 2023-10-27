@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PenyelenggaraController extends Controller
 {
@@ -16,7 +17,11 @@ class PenyelenggaraController extends Controller
     }
 
     public function list(){
-        return view('penyelenggara.list');
+        $data = DB::table('tbl_yayasan_pts')
+            ->join('tbl_perguruan_tinggi', 'tbl_perguruan_tinggi.id_bp_pts', '=', 'tbl_yayasan_pts.id_yys_pt')
+            ->paginate(10);
+
+        return view('penyelenggara.list')->with('data', $data);
 
     }
 }

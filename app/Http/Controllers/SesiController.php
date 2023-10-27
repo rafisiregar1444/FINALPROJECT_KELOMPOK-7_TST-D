@@ -33,7 +33,7 @@ class SesiController extends Controller
                 return redirect('/dashboard');
             }
         } else {
-            return redirect('')->withErrors('Username atau password salah')->withInput();
+            return redirect('/login')->withErrors('Username atau password salah')->withInput();
         };
     }
     function logout(){

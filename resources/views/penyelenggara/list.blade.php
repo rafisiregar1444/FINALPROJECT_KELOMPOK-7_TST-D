@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous"><!--end::Fonts--><!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous"><!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../../dist/css/adminlte.css"><!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}" type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous">
 </head>
 
@@ -39,11 +39,11 @@
             </div><!--end::Container-->
         </nav><!--end::Header--><!--begin::Sidebar-->
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"><!--begin::Sidebar Brand-->
-            <div class="sidebar-brand"><!--begin::Brand Link--><a href="/dashboard" class="brand-link"><!--begin::Brand Image--><img src="https://www.kemdikbud.go.id/main/addons/shared_addons/themes/november_theme/img/kemdikbud_64x64.png" alt="LLDIKTI Wilayah VII" class="brand-image opacity-75 shadow"><!--end::Brand Image--><!--begin::Brand Text--><span class="brand-text fw-light">LLDIKTI Wilayah VII</span><!--end::Brand Text--></a><!--end::Brand Link--></div><!--end::Sidebar Brand--><!--begin::Sidebar Wrapper-->
+            <div class="sidebar-brand"><!--begin::Brand Link--><a href="/test" class="brand-link"><!--begin::Brand Image--><img src="https://www.kemdikbud.go.id/main/addons/shared_addons/themes/november_theme/img/kemdikbud_64x64.png" alt="LLDIKTI Wilayah VII" class="brand-image opacity-75 shadow"><!--end::Brand Image--><!--begin::Brand Text--><span class="brand-text fw-light">LLDIKTI Wilayah VII</span><!--end::Brand Text--></a><!--end::Brand Link--></div><!--end::Sidebar Brand--><!--begin::Sidebar Wrapper-->
             <div class="sidebar-wrapper">
                 <nav class="mt-2"><!--begin::Sidebar Menu-->
                     <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item menu-open"><a href="/dashboard" class="nav-link active"><i class="nav-icon bi bi-speedometer"></i>
+                        <li class="nav-item menu-open"><a href="/test" class="nav-link active"><i class="nav-icon bi bi-speedometer"></i>
                                 <p>
                                     Dashboard
                                 </p>
@@ -56,7 +56,7 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item"><a href="./widgets/small-box.html" class="nav-link"><i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"><a href="/listbp" class="nav-link"><i class="nav-icon bi bi-circle"></i>
                                         <p>Daftar Badan Penyelenggara</p>
                                     </a></li>
                                 <li class="nav-item"><a href="./widgets/info-box.html" class="nav-link"><i class="nav-icon bi bi-circle"></i>
@@ -124,7 +124,7 @@
                 <div class="container-fluid"><!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">List Penyelenggara</h3>
+                            <h3 class="mb-0">List Badan Penyelenggara</h3>
                         </div>
                     </div><!--end::Row-->
                 </div><!--end::Container-->
@@ -137,44 +137,52 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="align-middle">
-                                                <th class="text-center" style="width: 1px">#</th>
-                                                <th class="text-center" style="width: 150px">Nama Badan Penyelenggara</th>
-                                                <th class="text-center" style="width: 150px">Data Akta Notaris</th>
-                                                <th class="text-center" style="width: 150px">Perguruan Tinggi</th>
-                                                <th class="text-center" style="width: 40px">Status BP</th>
-                                                <th class="text-center" style="width: 40px">Aksi</th>
+                                                <th class="text-center" style="width: 5%">#</th>
+                                                <th class="text-center" style="width: 25%">Nama Badan Penyelenggara</th>
+                                                <th class="text-center" style="width: 25%">Data Akta Notaris</th>
+                                                <th class="text-center" style="width: 25%">Perguruan Tinggi</th>
+                                                <th class="text-center" style="width: 10%">Status BP</th>
+                                                <th class="text-center" style="width: 10%">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($data as $k => $list) 
                                             <tr class="align-middle">
-                                                <td class="text-center">1.</td>
-                                                <td class="text-center">YAYASAN KESEJAHTERAAN WARGA KESEHATAN KABUPATEN MOJOKERTO</td>
-                                                <td class="text-center">YAYASAN KESEJAHTERAAN WARGA KESEHATAN KABUPATEN MOJOKERTO</td>
-                                                <td class="text-center">Politeknik Kesehatan Majapahit</td>
-                                                <td class="text-center"><span class="badge text-bg-success">Aktif</span></td>
-                                                <td class="text-center">Aksi</td>
+                                                <td class="text-center">{{ $k+1 }}</td>
+                                                <td class="text-left">{{ $list->nama_yys_pt }}</td>
+                                                <td class="text-left">{{ $list->nama_yys_pt }}</td>
+                                                <td class="text-left">{{ $list->nama_pts }}</td>
+                                                <td class="text-center">
+                                                    @if($list->jenis_yys == 1)
+                                                    <span class="badge text-bg-success">Aktif</span>
+                                                    @elseif ($list->jenis_yys == 0)
+                                                    <span class="badge text-bg-danger"> Tidak Aktif</span>
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="btn-group mb-2" role="group" aria-label="Button group with nested dropdown">
+                                                        <div class="btn-group" role="group"><button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                Pilih
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#">Hapus</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
-                                            <tr class="align-middle">
-                                                <td class="text-center">2.</td>
-                                                <td class="text-center">YAYASAN PENDIDIKAN WONOKROMO SURABAYA</td>
-                                                <td class="text-center">YAYASAN PENDIDIKAN WONOKROMO SURABAYA</td>
-                                                <td class="text-center">IKIP Widya Darma</td>
-                                                <td class="text-center"><span class="badge text-bg-danger">Tidak Aktif</span></td>
-                                                <td class="text-center">Aksi</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div><!-- /.card-body -->
                                 <br>
-                                <div class="card-footer clearfix">
+                                {{ $data->onEachSide(0)->links() }}
+                                {{-- <div class="card-footer clearfix">
                                     <ul class="pagination pagination-sm m-0 float-end">
-                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                        {{ $data->onEachSide(0)->links() }}
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
