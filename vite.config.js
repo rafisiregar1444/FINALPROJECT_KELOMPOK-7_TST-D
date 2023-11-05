@@ -4,7 +4,7 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['public/dist/css/adminlte.css', 'public/dist/js/adminlte.js'],
+            input: ['resources/css/adminlte.css', 'resources/js/adminlte.js'],
             refresh: true,
         }),
     ],

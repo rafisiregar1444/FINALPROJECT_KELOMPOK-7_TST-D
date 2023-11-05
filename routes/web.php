@@ -40,3 +40,8 @@ Route::middleware(['guest'])->group(function () {
 Route::get('/listbp', [PenyelenggaraController::class, 'list']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/logout', [SesiController::class, 'logout']);
+
+Route::get('crud-yys', [PenyelenggaraController::class, 'index']);
+Route::post('store-yys', [PenyelenggaraController::class, 'store']);
+Route::post('edit-yys', [PenyelenggaraController::class, 'edit']);
+Route::post('delete-yys', [PenyelenggaraController::class, 'destroy']);
