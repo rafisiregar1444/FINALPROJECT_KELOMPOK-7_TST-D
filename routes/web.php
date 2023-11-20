@@ -38,6 +38,9 @@ Route::middleware(['guest'])->group(function () {
 
 // Route::get('/test', [DashboardController::class, 'test']);
 Route::get('/listbp', [PenyelenggaraController::class, 'list']);
+Route::get('/addbp', [PenyelenggaraController::class, 'new']);
+Route::get('/editbp', [PenyelenggaraController::class, 'edit']);
+Route::get('/deletebp', [PenyelenggaraController::class, 'delete']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/logout', [SesiController::class, 'logout']);
 

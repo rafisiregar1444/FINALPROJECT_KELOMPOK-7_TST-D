@@ -16,12 +16,15 @@
     <div><a href="/logout" class="btn btn-sm btn-secondary">Logout >></a></div>
     <div class="card mt-3">
       <ul class="list-group list-group-flush">
+        
         @if(Auth::user()->role == 'admin')
         <li class="list-group-item">Menu admin</li>
         @endif
+
         @if(Auth::user()->role == 'user')
         <li class="list-group-item">Menu user</li>
         @endif
+
       </ul>
     </div>
 

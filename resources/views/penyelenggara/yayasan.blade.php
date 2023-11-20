@@ -153,9 +153,11 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
+            responsive: true,
         });
         $('#crud-yys').DataTable({
             "dom": 'rtip',
+            
             processing: true,
             serverSide: true,
             ajax: "{{ url('crud-yys') }}",
