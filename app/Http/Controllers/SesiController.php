@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class SesiController extends Controller
 {
@@ -13,24 +14,27 @@ class SesiController extends Controller
     }
     function login(Request $request){
         $request->validate([
-            'email'=>'required',
-            'password'=>'required'
+            'username'=>'required',
+            'password'=>'required',
+            'remember'=>'required'
         ],[
-            'email.required'=>'Email wajib diisi',
+            'username.required'=>'Username wajib diisi',
             'password.required'=>'Password wajib diisi'
         ]);
 
         $infologin = [
-            'email' => $request->email,
+            'username' => $request->username,
             'password' => $request->password,
+            'remember' => $request->remember_token,
+            'last_login' =>  Carbon::now()->toDateTimeString(),
         ];
 
         if(Auth::attempt($infologin)){
             if(Auth::user()->role == 'admin'){
-                return redirect('/dashboard');
+                return redirect('/home');
             }
             elseif(Auth::user()->role == 'user'){
-                return redirect('/dashboard');
+                return redirect('/home');
             }
         } else {
             return redirect('/login')->withErrors('Username atau password salah')->withInput();
@@ -38,6 +42,8 @@ class SesiController extends Controller
     }
     function logout(){
         Auth::logout();
-        return redirect('');
+        return redirect('login');
     }
+
+
 }

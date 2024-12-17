@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
     <title>Login  | LLDIKTI Wilayah VII</title>
+    <!-- Favicons -->
+  <link href="https://lldikti7.kemdikbud.go.id:443/assets/img/favicon.png" rel="icon">
+  <link href="https://lldikti7.kemdikbud.go.id:443/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <link rel="stylesheet" href="https://sistem.lldikti6.id/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
@@ -59,35 +63,4 @@
     <script src="../assets/js/theme.js"></script>
 </body>
 
-</html>
-{{-- <body>
-    <div class="container py-5">
-        <div class="w-50 center border rounded px-3 py-3 mx-auto">
-        <h1>Login</h1>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $item)
-                        <li>{{ $item }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <form action="" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" value="{{ old('email')}}" name="email" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control">
-            </div>
-            <div class="mb-3 d-grid">
-                <button name="submit" type="submit" class="btn btn-primary">Login</button>
-            </div>
-        </form>
-    </div> 
-    </div>
-</body> --}}
 </html>

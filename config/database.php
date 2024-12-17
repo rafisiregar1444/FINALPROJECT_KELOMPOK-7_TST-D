@@ -62,6 +62,23 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+            
+        'futsal2' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_FUTSAL2', '127.0.0.1'),
+            'port' => env('DB_PORT_FUTSAL2', '3306'),
+            'database' => env('DB_DATABASE_FUTSAL2', 'myticket'),
+            'username' => env('DB_USERNAME_FUTSAL2', 'root'),
+            'password' => env('DB_PASSWORD_FUTSAL2', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+
 
         'pgsql' => [
             'driver' => 'pgsql',

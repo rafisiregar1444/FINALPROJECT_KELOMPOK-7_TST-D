@@ -22,5 +22,8 @@ class DashboardController extends Controller
     function test(){
         return view('layouts.template');
     }
+    function roledashboard(){
+        return view('roledashboard');
+    }
     
 }

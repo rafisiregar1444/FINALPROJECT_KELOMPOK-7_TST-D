@@ -1,0 +1,2 @@
+USERNAME: admin (admin lldikti) atau 071014 (perguruan tinggi)
+PASSWORD: 12345 (kedua user sama passwordnya)

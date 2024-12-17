@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://localhost:8000/soap/voucher"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="Voucher"
+             targetNamespace="http://localhost:8000/soap/voucher">
+    <types>
+        <xsd:schema targetNamespace="http://localhost:8000/soap/voucher">
+            <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+        </xsd:schema>
+    </types>
+    <portType name="VoucherPort">
+        <operation name="pesanTiketDenganDiskon">
+            <documentation>Function to order tickets with a discount based on the number of people and transportation.</documentation>
+            <input message="tns:pesanTiketDenganDiskonIn"/>
+            <output message="tns:pesanTiketDenganDiskonOut"/>
+        </operation>
+        <operation name="getCategory">
+            <documentation>Retrieve all categories from the 'category' table and related transportation.</documentation>
+            <input message="tns:getCategoryIn"/>
+            <output message="tns:getCategoryOut"/>
+        </operation>
+    </portType>
+    <binding name="VoucherBinding" type="tns:VoucherPort">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="pesanTiketDenganDiskon">
+            <soap:operation soapAction="http://localhost:8000/soap/voucher#pesanTiketDenganDiskon"/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8000/soap/voucher"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8000/soap/voucher"/>
+            </output>
+        </operation>
+        <operation name="getCategory">
+            <soap:operation soapAction="http://localhost:8000/soap/voucher#getCategory"/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8000/soap/voucher"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8000/soap/voucher"/>
+            </output>
+        </operation>
+    </binding>
+    <message name="pesanTiketDenganDiskonIn">
+        <part name="jumlahOrang" type="xsd:int"/>
+        <part name="transportasiId" type="xsd:int"/>
+    </message>
+    <message name="pesanTiketDenganDiskonOut">
+        <part name="return" type="soap-enc:Array"/>
+    </message>
+    <message name="getCategoryIn"/>
+    <message name="getCategoryOut">
+        <part name="return" type="soap-enc:Array"/>
+    </message>
+    <service name="VoucherService">
+        <port name="VoucherPort" binding="tns:VoucherBinding">
+            <soap:address location="http://localhost:8000/soap/voucher2"/>
+        </port>
+    </service>
+</definitions>

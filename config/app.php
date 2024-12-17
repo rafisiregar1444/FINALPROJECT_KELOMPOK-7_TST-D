@@ -154,7 +154,8 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
-
+    
+    
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
@@ -169,6 +170,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+
     ])->toArray(),
 
     /*

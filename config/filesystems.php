@@ -30,6 +30,11 @@ return [
 
     'disks' => [
 
+        'logoUpload' => [
+            'driver' => 'local',
+            'root' => public_path('uploadLogo'), // Ubah root path ke direktori yang diinginkan
+        ],   
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

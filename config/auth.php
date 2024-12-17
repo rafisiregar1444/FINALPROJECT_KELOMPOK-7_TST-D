@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'user_lists',
     ],
 
     /*
@@ -38,6 +38,10 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
+            'provider' => 'user_lists',
+        ],
+        'api' => [
+            'driver' => 'token',
             'provider' => 'users',
         ],
     ],
@@ -60,10 +64,11 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'user_lists' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\user_list::class,
         ],
+        
 
         // 'users' => [
         //     'driver' => 'database',
@@ -91,9 +96,9 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_reset_tokens',
+        'user_lists' => [
+            'provider' => 'user_lists',
+            'table' => 'user_lists',
             'expire' => 60,
             'throttle' => 60,
         ],

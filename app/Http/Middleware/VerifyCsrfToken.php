@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'soap/*' //'soap/*', Menonaktifkan CSRF untuk semua endpoint dengan prefix soap
     ];
 }
